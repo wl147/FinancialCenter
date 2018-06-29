@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FC.dbo.FC_LeagueMatches”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="FC_LeagueMatches">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeagueCode" Type="nchar" MaxLength="255" />
+          <Property Name="LeagueName" Type="nchar" MaxLength="255" />
+          <Property Name="ImageUrl" Type="nchar" MaxLength="255" />
+          <Property Name="TeamCount" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FC.dbo.FC_Season”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="FC_Season">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeasonCode" Type="nchar" MaxLength="55" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FC.dbo.FC_Team”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="FC_Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="255" />
+          <Property Name="Mark" Type="nchar" MaxLength="255" />
+          <Property Name="ImageUrl" Type="nchar" MaxLength="255" />
+          <Property Name="LeagueMatchesID" Type="int" />
+          <Property Name="TeamLevel" Type="int" />
+        </EntityType>
+        <EntityContainer Name="FCModelStoreContainer">
+          <EntitySet Name="FC_LeagueMatches" EntityType="Self.FC_LeagueMatches" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FC_LeagueMatches].[ID] AS [ID], 
+    [FC_LeagueMatches].[LeagueCode] AS [LeagueCode], 
+    [FC_LeagueMatches].[LeagueName] AS [LeagueName], 
+    [FC_LeagueMatches].[ImageUrl] AS [ImageUrl], 
+    [FC_LeagueMatches].[TeamCount] AS [TeamCount]
+    FROM [dbo].[FC_LeagueMatches] AS [FC_LeagueMatches]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FC_Season" EntityType="Self.FC_Season" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FC_Season].[ID] AS [ID], 
+    [FC_Season].[SeasonCode] AS [SeasonCode]
+    FROM [dbo].[FC_Season] AS [FC_Season]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FC_Team" EntityType="Self.FC_Team" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FC_Team].[ID] AS [ID], 
+    [FC_Team].[Name] AS [Name], 
+    [FC_Team].[Mark] AS [Mark], 
+    [FC_Team].[ImageUrl] AS [ImageUrl], 
+    [FC_Team].[LeagueMatchesID] AS [LeagueMatchesID], 
+    [FC_Team].[TeamLevel] AS [TeamLevel]
+    FROM [dbo].[FC_Team] AS [FC_Team]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FC_LeagueMatches">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeagueCode" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="LeagueName" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="TeamCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FC_Season">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeasonCode" Type="String" MaxLength="55" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FC_Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="Mark" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="LeagueMatchesID" Type="Int32" />
+          <Property Name="TeamLevel" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="FCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FC_LeagueMatches" EntityType="Self.FC_LeagueMatches" />
+          <EntitySet Name="FC_Season" EntityType="Self.FC_Season" />
+          <EntitySet Name="FC_Team" EntityType="Self.FC_Team" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FCModelStoreContainer" CdmEntityContainer="FCEntities">
+          <EntitySetMapping Name="FC_LeagueMatches">
+            <EntityTypeMapping TypeName="FCModel.FC_LeagueMatches">
+              <MappingFragment StoreEntitySet="FC_LeagueMatches">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LeagueCode" ColumnName="LeagueCode" />
+                <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="TeamCount" ColumnName="TeamCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FC_Season">
+            <EntityTypeMapping TypeName="FCModel.FC_Season">
+              <MappingFragment StoreEntitySet="FC_Season">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SeasonCode" ColumnName="SeasonCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FC_Team">
+            <EntityTypeMapping TypeName="FCModel.FC_Team">
+              <MappingFragment StoreEntitySet="FC_Team">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="LeagueMatchesID" ColumnName="LeagueMatchesID" />
+                <ScalarProperty Name="TeamLevel" ColumnName="TeamLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

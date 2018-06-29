@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC", "FC\FC.csproj", "{82F1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC.Craswler", "FC.Craswler\FC.Craswler.csproj", "{F4756D86-C43E-495B-B1C6-F24633052C62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC.BLL", "FC.BLL\FC.BLL.csproj", "{DF6C7B4C-9979-4D0A-8680-48B6C56A2139}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F4756D86-C43E-495B-B1C6-F24633052C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4756D86-C43E-495B-B1C6-F24633052C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4756D86-C43E-495B-B1C6-F24633052C62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6C7B4C-9979-4D0A-8680-48B6C56A2139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6C7B4C-9979-4D0A-8680-48B6C56A2139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6C7B4C-9979-4D0A-8680-48B6C56A2139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6C7B4C-9979-4D0A-8680-48B6C56A2139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
