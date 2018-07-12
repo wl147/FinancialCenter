@@ -20,7 +20,7 @@ namespace FC.DAL.EFBase
     {
         private TRepository repository = null;
         /// <summary>
-        /// 数据访问类
+        ///  数据访问类
         /// </summary>
         protected TRepository Repository
         {
